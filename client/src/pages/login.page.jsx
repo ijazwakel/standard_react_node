@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaUser, FaLock } from 'react-icons/fa';
 import axios from 'axios';
-import { useAuth } from '../context/AuthCOntext.jsx';
+import {useAuth} from "../context/AuthContext.jsx";
 import { useNavigate } from 'react-router-dom';
 const LoginForm = () => {
     const [email, setEmail] = useState('');
