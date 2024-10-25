@@ -1,7 +1,7 @@
 // components/DashboardLayout.js
 "use client";
 import { useState, useEffect } from "react";
-import { useAuth } from "../context/AuthCOntext";
+import {useAuth } from "../context/AuthContext.jsx"
 import { useNavigate, NavLink } from "react-router-dom"; // Import NavLink
 import axios from "axios";
 import {
