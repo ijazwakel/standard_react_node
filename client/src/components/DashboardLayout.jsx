@@ -51,7 +51,7 @@ export default function DashboardLayout({ children }) {
                     <div className="flex-grow p-6 mt-[8rem]">
                         <nav className="space-y-4">
                             <NavLink
-                                to="/stdclasses" // Route for Class Schedule
+                                to="/" // Route for Class Schedule
                                 className={({ isActive }) =>
                                     `flex items-center gap-4 p-3 rounded-md hover:bg-gray-700 transition w-full text-left ${isActive ? "bg-gray-700" : ""}`
                                 }
@@ -103,18 +103,25 @@ export default function DashboardLayout({ children }) {
                 </aside>
             )}
             <div className={`flex-1 flex flex-col ${isSidebarOpen ? "md:ml-64" : ""}`}> {/* Adjust margin based on sidebar state */}
-                <header className="bg-gray-700 text-white shadow-md p-6 flex items-center justify-between fixed top-0 left-0 right-0 z-10">
+                <header className="bg-gray-700 text-white shadow-md py-2 px-6 flex items-center justify-between fixed top-0 left-0 right-0 z-10">
                     <div className="flex items-center gap-4">
-                        <button onClick={toggleSidebar} className="md:hidden"> {/* Burger button for mobile view */}
+                        <div
+                            onClick={toggleSidebar}
+                            className="cursor-pointer p-1" // Cursor pointer for better UX
+                        >
                             <FaBars size={24} className="text-white" />
-                        </button>
-                        <span className="text-xl font-semibold">Student Portal</span> {/* Updated header text */}
+                        </div>
+                        <span className="text-xl font-semibold">Student Portal</span>
                     </div>
                     <div className="flex items-center gap-6">
-                        <FaUserCircle size={50} className="text-gray-500 shadow-lg rounded-full bg-white p-1" />
-                        <span className="font-semibold">{family}</span>
+                        <div className="flex flex-col items-center"> {/* Flex column for profile icon and family name */}
+                            <FaUserCircle size={50} className="text-gray-500 shadow-lg rounded-full bg-white p-1" />
+                            <span className="font-semibold">{family}</span> {/* Family name below the icon */}
+                        </div>
                     </div>
                 </header>
+
+
                 <main className="flex-1 p-6 bg-white overflow-auto mt-[7rem]"> {/* White background for main content */}
                     {children}
                 </main>

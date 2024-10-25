@@ -20,9 +20,9 @@ const App = () => {
     <Router>
       <Routes>
         {/* Default route */}
-        <Route path="/" element={<ProtectedRoute><DashboardLayout/></ProtectedRoute>} />
+        {/* <Route path="/" element={<ProtectedRoute><DashboardLayout/></ProtectedRoute>} /> */}
         <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
-        <Route path="/stdclasses" element={<ProtectedRoute><ClassesSchedule /></ProtectedRoute>} />
+        <Route path="/" element={<ProtectedRoute><ClassesSchedule /></ProtectedRoute>} />
         <Route path="/payment_details" element={<ProtectedRoute><PaymentDetails /></ProtectedRoute>} />
         <Route path="/current_payment_details" element={<ProtectedRoute><StudentPaymentDetails /></ProtectedRoute>} />
         <Route path="/invoice_details" element={<ProtectedRoute><InvoiceDetailsPage /></ProtectedRoute>} />

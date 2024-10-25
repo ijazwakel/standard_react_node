@@ -10,7 +10,7 @@ export default function InvoiceDetailsPage() {
                 const response = await axios.get(
                     `http://103.18.23.62:8080/apeks/apps/erp/invoiceinfo/getdata/?P_EMAIL=${userName}`
                 );
-                console.log(response.data.items);
+
 
                 setInvoiceDetails(response.data.items);
             } catch (error) {
