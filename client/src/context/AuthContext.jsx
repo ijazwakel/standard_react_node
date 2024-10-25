@@ -1,8 +1,9 @@
-// src/context/AuthContext.js
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 
+// Create the AuthContext
 const AuthContext = createContext();
 
+// AuthProvider component to wrap the application
 export const AuthProvider = ({ children }) => {
     const [userName, setUserName] = useState(null);
 
@@ -14,16 +15,19 @@ export const AuthProvider = ({ children }) => {
         }
     }, []);
 
+    // Function to log in a user
     const login = (name) => {
         setUserName(name);
         localStorage.setItem('user_name', name);
     };
 
+    // Function to log out a user
     const logout = () => {
         setUserName(null);
         localStorage.removeItem('user_name');
     };
 
+    // Return the context provider with the userName, login, and logout methods
     return (
         <AuthContext.Provider value={{ userName, login, logout }}>
             {children}
@@ -31,6 +35,7 @@ export const AuthProvider = ({ children }) => {
     );
 };
 
+// Custom hook to use the AuthContext
 export const useAuth = () => {
-    return React.useContext(AuthContext);
+    return useContext(AuthContext);
 };
